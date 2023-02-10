@@ -1,0 +1,361 @@
+@charset "UTF-8";
+/* Couleurs */
+/* Marges */
+@import url("https://fonts.googleapis.com/css?family=Dosis|Baloo Tamma|Numans");
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.titleHighlight {
+  color: #261E21;
+  font-family: "Baloo Tamma", sans-serif;
+  font-size: 36px;
+  line-height: 0.8em;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .titleHighlight {
+    font-size: 24px;
+  }
+}
+
+.headerText {
+  font-family: "Dosis", sans-serif;
+  font-size: 64px;
+  margin: 0;
+  color: #6F4042;
+}
+@media (max-width: 768px) {
+  .headerText {
+    font-size: 40px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+#bloc_page {
+  background-color: #F2C550;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 30px 9vw;
+  z-index: 1;
+}
+nav > .headerText {
+  color: #6F4042;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+@media (max-width: 768px) {
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 80px;
+    margin-left: 50vw;
+    left: 0;
+    flex-direction: column;
+  }
+}
+.menu > li {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #6F4042;
+    background-color: #F2C550;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #C4C4C9;
+  }
+}
+@media (max-width: 2200px) {
+  .menu > li {
+    font-family: "Baloo Tamma", sans-serif;
+    font-size: 16px;
+    line-height: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    color: #6F4042;
+  }
+}
+.menu a:hover {
+  color: #F2C550;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .menu-button-container {
+    display: flex;
+  }
+}
+
+#menu-toggle {
+  display: none;
+}
+@media (max-width: 768px) {
+  #menu-toggle ~ .menu li {
+    height: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #C4C4C9;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+.menu-button {
+  display: block;
+  background-color: #816A5E;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+.menu-button::before {
+  display: block;
+  background-color: #816A5E;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+  content: "";
+  margin-top: -8px;
+}
+.menu-button::after {
+  display: block;
+  background-color: #816A5E;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+  content: "";
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: #F2C550;
+}
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+#bloc_page header .headerText {
+  margin: 20px 0 30px 0;
+}
+#bloc_page header .searchbar {
+  font-family: "Numans", sans-serif;
+  font-size: 18px;
+  margin: 0;
+  width: 320px;
+  height: 2em;
+  border: none;
+  border-radius: 1em;
+}
+@media (max-width: 768px) {
+  #bloc_page header .searchbar {
+    font-size: 16px;
+  }
+}
+#bloc_page header input[type=text] {
+  padding-left: 1rem;
+}
+#bloc_page header .greeting-picture {
+  width: 260px;
+  border: none;
+  border-radius: 50%;
+  margin: 30px 0 50px 0;
+}
+@media (max-width: 768px) {
+  #bloc_page header {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #bloc_page header .searchbar {
+    width: 350px;
+  }
+}
+@media (max-width: 992px) {
+  #bloc_page header {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 2200px) {
+  #bloc_page header {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  #bloc_page header .headerText {
+    flex: 1 0 100%;
+  }
+  #bloc_page header .searchbar {
+    margin-right: 50px;
+    width: 400px;
+  }
+}
+
+#seasonProducts {
+  background-color: #6F4042;
+}
+#seasonProducts .headerText {
+  color: #F2C550;
+  padding-top: 70px;
+}
+#seasonProducts img {
+  width: 260px;
+  border: none;
+  border-radius: 50%;
+}
+#seasonProducts .slider-container {
+  max-width: 260px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  overflow: hidden;
+}
+#seasonProducts .menuCarousel {
+  position: absolute;
+  left: 0;
+  z-index: 11;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+#seasonProducts .menuCarousel label {
+  cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  background: #816A5E;
+  border-radius: 50px;
+  margin: 0 0.2em 1em;
+}
+#seasonProducts .menuCarousel label:hover, #seasonProducts .menuCarousel label:focus {
+  background: #F2C550;
+}
+#seasonProducts .slide-input {
+  opacity: 0;
+}
+#seasonProducts .slide-img {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+  transition: left 0s 0.75s;
+}
+#seasonProducts [id^=slide]:checked + .slide-img {
+  left: 0;
+  z-index: 100;
+  transition: left 0.65s ease-out;
+}
+
+#tutorial {
+  background-color: white;
+}
+#tutorial img {
+  width: 120px;
+}
+#tutorial .titleText {
+  font-family: "Dosis", sans-serif;
+  font-size: 64px;
+  margin: 0;
+  color: #816A5E;
+  padding-top: 70px;
+}
+@media (max-width: 768px) {
+  #tutorial .titleText {
+    font-size: 40px;
+  }
+}
+#tutorial #stepOne, #tutorial #stepTwo, #tutorial #stepThree {
+  padding-top: 30px;
+}
+#tutorial #stepThree {
+  padding-bottom: 70px;
+}
+
+footer {
+  background-color: #261E21;
+  color: #816A5E;
+}
+footer .titlehighlight {
+  font-family: "Baloo Tamma", sans-serif;
+  font-size: 36px;
+  line-height: 0.8em;
+  margin: 0;
+  color: #C4C4C9;
+  padding-top: 30px;
+}
+@media (max-width: 768px) {
+  footer .titlehighlight {
+    font-size: 24px;
+  }
+}
+footer .title {
+  font-family: "Dosis", sans-serif;
+  font-size: 36px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  footer .title {
+    font-size: 24px;
+  }
+}
+
+/* Notes de projet : mon idée était de créer un site de livraison à la Just Eat mais avec des boulangeries/pâtisseries.
+C'est mon premier projet "mobile-first" et je tiens à remercier l'inspecteur d'éléments sans qui ce projet n'aurait jamais vu le jour...
+Blague à part, j'ai beaucoup appris sur les maps Sass que je ne maîtrisais pas jusqu'à maintenant. Je pense continuer à créer mes pages de la sorte
+(du plus petit écran au plus grand), le processus d'écriture est beaucoup plus organnisé, c'est très satisfaisant.
+Sass est très puissant, ça me donne envie de le découvrir et de le manier d'avantage.
+En parallèle, j'ai appris des notions d'animations CSS, je voudrais les utiliser sur ce projet pour rendre le site plus 
+attractif. J'aimerais aussi aller plus loin dans le projet en apprenant à maîtriser les API (ma prochaîne étape)... */
+
+/*# sourceMappingURL=style.css.map */

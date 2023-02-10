@@ -1,0 +1,64 @@
+// Mobile-first avec warning
+@mixin device-width($breakpoint) {
+    @if not map-has-key($breakpoints, $breakpoint) {
+        @warn "Warning: `#{$breakpoint}` is not a valid breakpoint name.";
+        } @else {
+            @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+                @content;
+            }
+        }
+}
+
+
+//Fonts
+@mixin header {
+    font-family: 'Dosis', sans-serif;
+    font-size: 64px;
+    margin: 0;
+    @include device-width(medium) {
+        font-size: 40px;
+    }
+}
+@mixin title-1 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 36px;
+    margin: 0;
+    @include device-width(medium) {
+        font-size: 24px;
+    }
+}
+@mixin title-2 {
+    font-family: 'Baloo Tamma', sans-serif;
+    font-size: 36px;
+    line-height: 0.8em;
+    margin: 0;
+    @include device-width(medium) {
+        font-size: 24px;
+    }
+}
+@mixin body {
+    font-family: 'Numans', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    @include device-width(medium) {
+        font-size: 16px;
+    }
+}
+
+//Images
+@mixin picture-ronde {
+    width : 260px;
+    border: none;
+    border-radius : 50%;
+}
+
+//Bouton de navigation (open)
+@mixin navBtn {
+    display: block;
+    background-color: $color-dark-accent;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+}

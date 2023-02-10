@@ -1,0 +1,290 @@
+//Sass
+@import "./Utils/variables";
+@import "./Utils/mixin";
+@import "./Utils/map";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Dosis|Baloo Tamma|Numans');
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+//Styles de Textes
+.titleHighlight{
+    color: $color-dark-shades;
+    @include title-2;
+}
+.headerText{
+    @include header;
+    color: $color-main;
+}
+ul{
+    list-style: none;
+}
+
+#bloc_page{
+    background-color: $color-light-accent;
+}
+
+// Menu
+nav {
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    //W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+    height: 50px;
+    padding: 30px $margin-side;
+    z-index: 1;
+    > .headerText{
+        color: $color-main;
+    }
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    @include device-width(medium){
+        position: absolute;
+        top: 0;
+        margin-top: 80px;
+        margin-left: 50vw;
+        left: 0;
+        flex-direction: column;
+    }
+    > li {
+        //margin: 0 1rem;
+        overflow: hidden;
+        @include device-width(medium){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            color: $color-main;
+            background-color: $color-light-accent;
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-light-shades;
+            }
+        }
+        @include device-width(xlarge){
+            font-family: 'Baloo Tamma', sans-serif;
+            font-size: 16px;
+            line-height: 0.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            width: 100%;
+            color: $color-main;
+        }
+    }
+    a:hover{
+        color: $color-light-accent;
+    }
+}
+.menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include device-width(medium){
+        display: flex;
+    }
+}
+
+//Bascule du menu
+#menu-toggle {
+    display: none;
+    @include device-width(medium){
+        ~ .menu li {
+            height: 0;
+            padding: 0;
+            border: 0;
+            transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        &:checked ~ .menu li {
+            border: 1px solid $color-light-shades;
+            height: 2.5em;
+            padding: 0.5em;
+            transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    }
+}
+//Bouton On/Off
+.menu-button {
+    @include navBtn;
+    &::before{
+        @include navBtn;
+        content: '';
+        margin-top: -8px;
+    }
+    &::after{
+        @include navBtn;
+        content: '';
+        margin-top: 8px;
+    }
+}
+#menu-toggle:checked + .menu-button-container .menu-button {
+    background: $color-light-accent;
+    &::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+    }
+    &::after {
+        margin-top: 0px;
+        transform: rotate(-405deg);
+    }
+}
+
+//Header ::Recherche
+#bloc_page header{
+    .headerText{
+        margin: 20px 0 30px 0;
+        //haut droite bas gauche
+    }
+    .searchbar{
+        @include body;
+        width: 320px;
+        height: 2em;
+        border: none;
+        border-radius: 1em;
+    }
+    input[type="text"]{
+        padding-left: 1rem;
+    }
+    .greeting-picture{
+        @include picture-ronde;
+        margin: 30px 0 50px 0;
+    }
+    @include device-width(medium){
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: space-around;
+        .searchbar{
+            width: 350px;
+        }
+    }
+    @include device-width(large){
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    @include device-width(xlarge){
+        .headerText{
+            flex: 1 0 100%;
+        }
+        .searchbar{
+            margin-right: 50px;
+            width: 400px;
+        }
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+//Tête de gondole
+#seasonProducts{
+    background-color: $color-main;
+    .headerText{
+        color: $color-light-accent;
+        padding-top: 70px;
+    }
+    img {
+        @include picture-ronde;
+    }
+    .slider-container {
+        max-width: 260px;
+        position: relative;
+        margin: auto;
+        height: 350px;
+        overflow: hidden;
+    }
+    .menuCarousel {
+        position: absolute;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+    }
+    .menuCarousel label {
+        cursor: pointer;
+        display: inline-block;
+        width: 30px;
+        height: 10px;
+        background: $color-dark-accent;
+        border-radius: 50px;
+        margin: 0 0.2em 1em;
+    }
+    .menuCarousel label:hover,.menuCarousel label:focus {
+        background: $color-light-accent;
+    }
+    .slide-input{
+        opacity: 0;
+    }
+    .slide-img {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        z-index: 10;
+        transition: left 0s 0.75s;
+    }
+    [id^="slide"]:checked + .slide-img {
+        left: 0;
+        z-index: 100;
+        transition: left 0.65s ease-out;
+    }    
+}
+
+//Tutoriel Client
+#tutorial{
+    background-color: white;
+    img{
+        width: 120px;
+    }
+    .titleText{
+        @include header;
+        color: $color-dark-accent;
+        padding-top: 70px;
+    }
+    #stepOne, #stepTwo, #stepThree{
+        padding-top: 30px;
+    }
+    #stepThree{
+        padding-bottom: 70px;
+    }
+}
+
+//Footer
+footer{
+    background-color: $color-dark-shades;
+    color: $color-dark-accent;
+    .titlehighlight{
+        @include title-2;
+        color: $color-light-shades;
+        padding-top: 30px;
+    }
+    .title{
+        @include title-1;
+    }
+}
+
+/* Notes de projet : mon idée était de créer un site de livraison à la Just Eat mais avec des boulangeries/pâtisseries.
+C'est mon premier projet "mobile-first" et je tiens à remercier l'inspecteur d'éléments sans qui ce projet n'aurait jamais vu le jour...
+Blague à part, j'ai beaucoup appris sur les maps Sass que je ne maîtrisais pas jusqu'à maintenant. Je pense continuer à créer mes pages de la sorte
+(du plus petit écran au plus grand), le processus d'écriture est beaucoup plus organnisé, c'est très satisfaisant.
+Sass est très puissant, ça me donne envie de le découvrir et de le manier d'avantage.
+En parallèle, j'ai appris des notions d'animations CSS, je voudrais les utiliser sur ce projet pour rendre le site plus 
+attractif. J'aimerais aussi aller plus loin dans le projet en apprenant à maîtriser les API (ma prochaîne étape)... */

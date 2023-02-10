@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./style.css">
+        <title>Cake & Roll</title>
+
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="bloc_page">
+        <!--Menu-->
+            <nav>
+                <p class="titleHighlight">Cake & Roll</p>
+                <input id="menu-toggle" type="checkbox">
+                <label class='menu-button-container' for="menu-toggle">
+                    <div class='menu-button'></div>
+                </label>
+                <ul class="menu">
+                    <li>Service Client</li>
+                    <li>S'inscrire</li>
+                    <li>Devenir livreur</li>
+                    <li>Conditions d’utilisation</li>
+                    <li>Mentions légales</li>
+                </ul>
+            </nav>
+
+        <!-- Header -->
+            <header>
+                <p class="headerText">C’est le moment de se faire plaisiiir</p>
+                <!--Barre de recherche-->
+                <!-- input tag -->
+                <input class="searchbar" onkeyup="search_bakery()" type="text" name="search" placeholder="Cherchez une boulangerie locale...">
+                <img class="greeting-picture" src="./Stock/kim-daniels.jpg" alt="tartelettes orange myrtilles et crème aux agrumes">
+            </header>
+        </div>
+
+        <!--Produits de saison-->
+        <div id="seasonProducts">
+            <p class="headerText">C’est de saison</p>
+            <div class="slider-container">
+                <div class="menuCarousel">
+                  <label for="slide-dot-1"></label>
+                  <label for="slide-dot-2"></label>
+                  <label for="slide-dot-3"></label>
+                </div>
+                
+                <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
+                <img class="slide-img" src="./Stock/pexels-chudesabyvaut.jpg" alt="carrot cake avec glacage coupé en parts">
+          
+                <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
+                <img class="slide-img" src="./Stock/hugo-aitken.jpg" alt="tarte aux noix">
+                
+                <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
+                <img class="slide-img" src="./Stock/david-holifield.jpg" alt="layer cake chocolat, mousse noisette et glacage chocolat noir">
+            </div>
+        </div>
+        <!--Tutoriel client-->
+        <div id="tutorial">
+            <p class="titleText">Comment ça marche ?</p>
+            <div id="stepOne">
+                <img class="icone" src="./Stock/carte.png" alt="dessin d'un plan avec une balise">
+                <p class="titleHighlight">Indiquez votre position</p>
+                <p>Saisissez le lieu où vous voulez être livré.</p>
+            </div>
+            <div id="stepTwo">
+                <img class="icone" src="./Stock/bakery-shop.png" alt="dessin d'une devanture de boulangerie/pâtisserie">
+                <p class="titleHighlight">Sélectionnez une boulangerie/patisserie</p>
+                <p>Choisissez selon votre envie du moment !</p>
+            </div>
+            <div id="stepThree">
+                <img class="icone" src="./Stock/check.png" alt="dessin d'une check liste et d'un camion de livraison">
+                <p class="titleHighlight">Passez et payez votre commande</p>
+                <p>Les moyens de paiement sont variés.</p>
+            </div>
+        </div>
+
+
+        <footer>
+            <p class="titlehighlight">Cake & Roll</p>
+            <p class="title">Follow us
+                <!-- liens utiles
+                <a target="_blank"  href="https://www.instagram.com/"><i class="instagram"></i></a>
+                <a target="_blank"  href="https://www.facebook.com/"><i class="facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/"><i class="twitter-square"></i></a>--> 
+            </p>
+            <ul>
+                <li>Service Client</li>
+                <li>S'inscrire</li>
+                <li>Devenir livreur</li>
+                <li>Conditions d’utilisation</li>
+                <li>Mentions légales</li>
+            </ul>
+            <p>	&#169;2022 - Cake & Roll</p>
+        </footer>
+    </body>
+</html>
